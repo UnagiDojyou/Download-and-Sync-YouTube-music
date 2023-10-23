@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
@@ -267,6 +267,7 @@ if __name__ == '__main__':
         with open('profile.config', 'w') as file:
             file.write(profile)
         print(f"write {profile} to profile.config.")
+        sys.exit(1)
 
     filename = listname + '.json'
     jsonlen = 800  # ChatGPTに送るjsonの文字列の量
