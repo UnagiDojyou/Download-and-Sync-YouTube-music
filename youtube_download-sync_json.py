@@ -100,7 +100,11 @@ def download_playlist(video_list):
                 continue
 
             # ダウンロード
-            ydl.download([url])
+            kaeri = ydl.download([url])
+            print(kaeri)
+            if kaeri == 0:
+                print("Error! skipp")
+                continue
 
             video_info = [info['id'], num_list[count],
                           info['uploader'],  info['title']]

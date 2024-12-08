@@ -7,16 +7,8 @@ ChatGPT-4 is used to identify the artist and title, so it won't work without a P
 1. Library installation<br>
 `pip install -r requirements.txt`<br>
 This should suffice.
-2. Install Firefox<br>
+2. Install FFmpeg<br>
 If you've already installed it, you're good to go.
-3. Create a profile in Firefox<br>
-Create a profile for this program in about:profiles and log into ChatGPT with that profile. Also, turn the locale of the alpha feature to ON (participate in the alpha).
-4. Note down the profile path<br>
-Copy the path of the profile you created in about:profiles.
-5. Download geckodriver<br>
-Download geckodriver from [here](https://github.com/mozilla/geckodriver/releases) and place it in the same folder as gpt_tag.py.
-6. Register your profile<br>
-Execute `python gpt_tag.py test` and register your profile.
 
 # Usage (for regular playlists)
 1. Copy the URL of the YouTube playlist<br>
@@ -25,7 +17,12 @@ It's probably something like https://www.youtube.com/playlist?list="ID". Make su
 Start the download with `python youtube_download-sync_json.py <URL> (download limit)`<br>
 The download limit is the maximum number of downloads in one command. If not specified, it defaults to 100.
 3. Fetch artist & title with ChatGPT<br>
-Launch ChatGPT with `python gpt_tag.py <play list name>` and determine the artist and title from the title and channel name.
+Use `python gpt_tag.py <play list name>`<br>
+to generate commands for ChatGPT and paste them. <br>
+Copy the part between `Copy the message below and paste ChatGPT response here.`
+and `To terminate input, enter a blank line.`
+and paste it into ChatGPT, paste the JSON part of the response into the console, and press Enter. <br>
+Repeat this until it's done.
 4. Tag and rename files<br>
 Use `python tag_and_rename.py <play list name>` to tag the files with the data determined by ChatGPT and rename them to artist「title」.m4a.
 
